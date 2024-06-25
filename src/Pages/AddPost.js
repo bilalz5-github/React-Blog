@@ -1,6 +1,5 @@
-// src/pages/AddPost.js
 import React, { useState, useContext } from 'react';
-import { PostContext } from '../context/PostContext';
+import { PostContext } from '../Context/PostContext';
 
 function AddPost() {
   const { addPost } = useContext(PostContext);
@@ -9,9 +8,13 @@ function AddPost() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPost(title, content);
-    setTitle('');
-    setContent('');
+    if (title.trim() && content.trim()) {
+      addPost(title, content);
+      setTitle('');
+      setContent('');
+    } else {
+      alert('Please enter both a title and content.');
+    }
   };
 
   return (
@@ -20,10 +23,12 @@ function AddPost() {
         Title:
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
       </label>
+      <br />
       <label>
         Content:
         <textarea value={content} onChange={(e) => setContent(e.target.value)}></textarea>
       </label>
+      <br />
       <button type="submit">Add Post</button>
     </form>
   );

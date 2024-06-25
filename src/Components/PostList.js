@@ -1,6 +1,6 @@
 // src/components/PostList.js
 import React, { useContext } from 'react';
-import { PostContext } from '../context/PostContext';
+import { PostContext } from '../Context/PostContext';
 import Post from './Post';
 
 function PostList() {

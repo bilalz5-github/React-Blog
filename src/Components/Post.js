@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { PostContext } from '../context/PostContext';
+import { PostContext } from '../Context/PostContext';
 
 function Post({ post }) {
   const { deletePost } = useContext(PostContext);
